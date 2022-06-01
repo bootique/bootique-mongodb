@@ -1,0 +1,4 @@
+io/bootique/mongo/morphia/MorphiaModuleExtender.class
+io/bootique/mongo/morphia/MorphiaModule.class
+io/bootique/mongo/morphia/AbstractMorphiaDao.class
+io/bootique/mongo/morphia/MorphiaConfig.class
