@@ -17,8 +17,8 @@
   under the License.
   -->
 
-[![build test deploy](https://github.com/bootique/bootique-rabbitmq/actions/workflows/maven.yml/badge.svg)](https://github.com/bootique/bootique-rabbitmq/actions/workflows/maven.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/io.bootique.rabbitmq/bootique-rabbitmq-client.svg?colorB=brightgreen)](https://search.maven.org/artifact/io.bootique.rabbitmq/bootique-rabbitmq-client)
+[![build test deploy](https://github.com/bootique/bootique-mongodb/actions/workflows/maven.yml/badge.svg)](https://github.com/bootique/bootique-mongodb/actions/workflows/maven.yml)
+[![Maven Central](https://img.shields.io/maven-central/v/io.bootique.mongodb/bootique-mongodb-client.svg?colorB=brightgreen)](https://search.maven.org/artifact/io.bootique.mongodb/bootique-mongodb-client)
 
 
 # Bootique Mongo
