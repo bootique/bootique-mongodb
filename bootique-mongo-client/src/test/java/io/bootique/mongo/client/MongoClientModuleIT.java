@@ -35,14 +35,14 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @BQTest
-class MongoModuleIT {
+class MongoClientModuleIT {
 
     @BQTestTool
     protected static MongoTester mongoTester = MongoTester.create();
 
     @BQApp(skipRun = true)
     static final BQRuntime app = Bootique.app()
-        .module(new MongoModule())
+        .module(new MongoClientModule())
         .module(binder -> binder.bind(MongoClient.class).toInstance(mongoTester.createMongoClient()))
         .autoLoadModules()
         .createRuntime();

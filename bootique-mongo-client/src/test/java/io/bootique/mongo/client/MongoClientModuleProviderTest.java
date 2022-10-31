@@ -18,23 +18,14 @@
  */
 package io.bootique.mongo.client;
 
-import io.bootique.BQModuleProvider;
-import io.bootique.di.BQModule;
+import io.bootique.junit5.BQModuleProviderChecker;
+import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.Map;
+public class MongoClientModuleProviderTest {
 
-public class MongoModuleProvider implements BQModuleProvider {
-
-    @Override
-    public BQModule module() {
-        return new MongoModule();
-    }
-
-    @Override
-    public Map<String, Type> configs() {
-        return Collections.singletonMap("mongo", MongoClientFactory.class);
+    @Test
+    public void testAutoLoadable() {
+        BQModuleProviderChecker.testAutoLoadable(MongoClientModuleProvider.class);
     }
 }
 

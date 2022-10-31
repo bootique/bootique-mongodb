@@ -18,14 +18,24 @@
  */
 package io.bootique.mongo.client;
 
-import io.bootique.junit5.BQModuleProviderChecker;
-import org.junit.jupiter.api.Test;
+import com.mongodb.client.MongoClient;
+import io.bootique.ConfigModule;
+import io.bootique.config.ConfigurationFactory;
+import io.bootique.di.Provides;
 
-public class MongoModuleProviderTest {
+import javax.inject.Singleton;
 
-    @Test
-    public void testAutoLoadable() {
-        BQModuleProviderChecker.testAutoLoadable(MongoModuleProvider.class);
+public class MongoClientModule extends ConfigModule {
+
+    @Provides
+    public MongoClientFactory provideMongoConfig(ConfigurationFactory configFactory) {
+        return config(MongoClientFactory.class, configFactory);
+    }
+
+    @Provides
+    @Singleton
+    public MongoClient provideMongoClient(ConfigurationFactory configFactory) {
+        return configFactory.config(MongoClientFactory.class, configPrefix).createClient();
     }
 }
 

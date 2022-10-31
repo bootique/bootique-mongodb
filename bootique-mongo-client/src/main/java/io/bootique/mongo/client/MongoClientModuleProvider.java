@@ -18,24 +18,23 @@
  */
 package io.bootique.mongo.client;
 
-import com.mongodb.client.MongoClient;
-import io.bootique.ConfigModule;
-import io.bootique.config.ConfigurationFactory;
-import io.bootique.di.Provides;
+import io.bootique.BQModuleProvider;
+import io.bootique.di.BQModule;
 
-import javax.inject.Singleton;
+import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.Map;
 
-public class MongoModule extends ConfigModule {
+public class MongoClientModuleProvider implements BQModuleProvider {
 
-    @Provides
-    public MongoClientFactory provideMongoConfig(ConfigurationFactory configFactory) {
-        return config(MongoClientFactory.class, configFactory);
+    @Override
+    public BQModule module() {
+        return new MongoClientModule();
     }
 
-    @Provides
-    @Singleton
-    public MongoClient provideMongoClient(ConfigurationFactory configFactory) {
-        return configFactory.config(MongoClientFactory.class, configPrefix).createClient();
+    @Override
+    public Map<String, Type> configs() {
+        return Collections.singletonMap("mongo", MongoClientFactory.class);
     }
 }
 
