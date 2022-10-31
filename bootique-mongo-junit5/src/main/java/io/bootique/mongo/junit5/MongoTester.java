@@ -18,8 +18,8 @@
  */
 package io.bootique.mongo.junit5;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
+import io.bootique.BQCoreModule;
+import io.bootique.di.BQModule;
 import io.bootique.junit5.BQTestScope;
 import io.bootique.junit5.scope.BQAfterScopeCallback;
 import io.bootique.junit5.scope.BQBeforeScopeCallback;
@@ -65,8 +65,8 @@ public class MongoTester implements BQBeforeScopeCallback, BQAfterScopeCallback 
         return "mongodb://" + container.getHost() + ":" + container.getFirstMappedPort();
     }
 
-    public MongoClient createMongoClient() {
-        return MongoClients.create(getConnectionUrl());
-    }
+   public BQModule moduleWithTestMongoClient() {
+        return b -> BQCoreModule.extend(b).setProperty("bq.mongoclient.connectionString", getConnectionUrl());
+   }
 
 }

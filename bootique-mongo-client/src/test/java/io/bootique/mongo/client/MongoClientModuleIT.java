@@ -38,13 +38,13 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 class MongoClientModuleIT {
 
     @BQTestTool
-    protected static MongoTester mongoTester = MongoTester.create();
+    static final MongoTester mongoTester = MongoTester.create();
 
     @BQApp(skipRun = true)
     static final BQRuntime app = Bootique.app()
-        .autoLoadModules()
-        .module(binder -> binder.bind(MongoClient.class).toInstance(mongoTester.createMongoClient()))
-        .createRuntime();
+            .autoLoadModules()
+            .module(mongoTester.moduleWithTestMongoClient())
+            .createRuntime();
 
     @Test
     void testMongoDBConnection() {
@@ -53,10 +53,10 @@ class MongoClientModuleIT {
 
         MongoCollection<Document> collection = db.getCollection("test");
         Document doc = new Document("name", "MongoDB")
-            .append("type", "database")
-            .append("count", 1)
-            .append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"))
-            .append("info", new Document("x", 203).append("y", 102));
+                .append("type", "database")
+                .append("count", 1)
+                .append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"))
+                .append("info", new Document("x", 203).append("y", 102));
 
         assertDoesNotThrow(() -> collection.insertOne(doc));
     }

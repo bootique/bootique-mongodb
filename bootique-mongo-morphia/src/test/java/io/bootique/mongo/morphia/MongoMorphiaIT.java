@@ -39,13 +39,13 @@ class MongoMorphiaIT {
     private static final String DB_NAME = "ander-test";
 
     @BQTestTool
-    protected static MongoTester mongoTester = MongoTester.create();
+    static final MongoTester mongoTester = MongoTester.create();
 
     @BQApp(skipRun = true)
     static final BQRuntime app = Bootique.app()
-        .module(binder -> binder.bind(MongoClient.class).toInstance(mongoTester.createMongoClient()))
-        .autoLoadModules()
-        .createRuntime();
+            .autoLoadModules()
+            .module(mongoTester.moduleWithTestMongoClient())
+            .createRuntime();
 
     @Test
     void testMorphia() {
@@ -58,30 +58,29 @@ class MongoMorphiaIT {
         Assertions.assertNotNull(id);
         Assertions.assertSame(testObjectSaved, testObjectOriginal);
 
-        MongoTestObject testObjectFromDb  = datastore.find(MongoTestObject.class)
-            .filter(Filters.eq("id", id))
-            .first();
+        MongoTestObject testObjectFromDb = datastore.find(MongoTestObject.class)
+                .filter(Filters.eq("id", id))
+                .first();
         Assertions.assertNotNull(testObjectFromDb);
 
         datastore.delete(testObjectFromDb);
-        MongoTestObject testObjectFromDb2  = datastore.find(MongoTestObject.class)
-            .filter(Filters.eq("id", id))
-            .first();
+        MongoTestObject testObjectFromDb2 = datastore.find(MongoTestObject.class)
+                .filter(Filters.eq("id", id))
+                .first();
         Assertions.assertNull(testObjectFromDb2);
     }
-
 
 
     @Test
     void testMorphiaWithSubObjects() {
         Datastore datastore = getDatastore();
         MongoTestObject testObjectOriginal = new MongoTestObject()
-            .bool(true)
-            .string("someString")
-            .subObjects(List.of(
-                new MongoTestSubObject().name("name").value(123).enumeration(MongoTestEnum.ONE),
-                new MongoTestSubObject().name("name1").value(1233243)
-            ));
+                .bool(true)
+                .string("someString")
+                .subObjects(List.of(
+                        new MongoTestSubObject().name("name").value(123).enumeration(MongoTestEnum.ONE),
+                        new MongoTestSubObject().name("name1").value(1233243)
+                ));
 
         MongoTestObject testObjectSaved = datastore.save(testObjectOriginal);
 
@@ -89,18 +88,18 @@ class MongoMorphiaIT {
         Assertions.assertNotNull(id);
         Assertions.assertSame(testObjectSaved, testObjectOriginal);
 
-        MongoTestObject testObjectFromDb  = datastore.find(MongoTestObject.class)
-            .filter(Filters.eq("id", id))
-            .first();
+        MongoTestObject testObjectFromDb = datastore.find(MongoTestObject.class)
+                .filter(Filters.eq("id", id))
+                .first();
         Assertions.assertNotNull(testObjectFromDb);
 
         datastore.find(MongoTestObject.class)
-            .filter(Filters.eq("id", id))
-            .delete();
+                .filter(Filters.eq("id", id))
+                .delete();
 
-        MongoTestObject testObjectFromDb2  = datastore.find(MongoTestObject.class)
-            .filter(Filters.eq("id", id))
-            .first();
+        MongoTestObject testObjectFromDb2 = datastore.find(MongoTestObject.class)
+                .filter(Filters.eq("id", id))
+                .first();
         Assertions.assertNull(testObjectFromDb2);
     }
 

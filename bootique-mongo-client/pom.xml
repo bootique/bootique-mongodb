@@ -41,7 +41,6 @@
             <groupId>io.bootique</groupId>
             <artifactId>bootique</artifactId>
             <version>${bootique.version}</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
