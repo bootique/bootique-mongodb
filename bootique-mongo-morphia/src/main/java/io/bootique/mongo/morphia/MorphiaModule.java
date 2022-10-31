@@ -20,9 +20,8 @@ package io.bootique.mongo.morphia;
 
 import com.mongodb.client.MongoClient;
 import dev.morphia.Datastore;
-import io.bootique.BaseModule;
+import io.bootique.ConfigModule;
 import io.bootique.config.ConfigurationFactory;
-import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
 import io.bootique.di.Provides;
 
@@ -30,7 +29,7 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 import java.util.Set;
 
-public class MorphiaModule extends BaseModule implements BQModule {
+public class MorphiaModule extends ConfigModule {
 
     static final String MORPHIA_PACKAGE_NAMES_DI_NAME = "morphiaPackageNames";
 

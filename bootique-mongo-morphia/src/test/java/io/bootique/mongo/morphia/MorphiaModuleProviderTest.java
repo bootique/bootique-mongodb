@@ -16,25 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package io.bootique.mongo.client;
+package io.bootique.mongo.morphia;
 
-import io.bootique.BQModuleProvider;
-import io.bootique.di.BQModule;
+import io.bootique.junit5.BQModuleProviderChecker;
+import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.Map;
+public class MorphiaModuleProviderTest {
 
-public class MongoClientModuleProvider implements BQModuleProvider {
-
-    @Override
-    public BQModule module() {
-        return new MongoClientModule();
-    }
-
-    @Override
-    public Map<String, Type> configs() {
-        return Collections.singletonMap("mongoclient", MongoClientFactory.class);
+    @Test
+    public void testAutoLoadable() {
+        BQModuleProviderChecker.testAutoLoadable(MorphiaModuleProvider.class);
     }
 }
 
