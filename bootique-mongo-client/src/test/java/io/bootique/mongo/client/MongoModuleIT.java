@@ -35,7 +35,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @BQTest
-class MongoModuleTest  {
+class MongoModuleIT {
 
     @BQTestTool
     protected static MongoTester mongoTester = MongoTester.create();
