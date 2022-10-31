@@ -42,9 +42,8 @@ class MongoClientModuleIT {
 
     @BQApp(skipRun = true)
     static final BQRuntime app = Bootique.app()
-        .module(new MongoClientModule())
-        .module(binder -> binder.bind(MongoClient.class).toInstance(mongoTester.createMongoClient()))
         .autoLoadModules()
+        .module(binder -> binder.bind(MongoClient.class).toInstance(mongoTester.createMongoClient()))
         .createRuntime();
 
     @Test

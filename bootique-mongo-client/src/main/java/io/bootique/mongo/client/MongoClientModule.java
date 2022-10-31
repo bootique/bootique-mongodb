@@ -28,11 +28,6 @@ import javax.inject.Singleton;
 public class MongoClientModule extends ConfigModule {
 
     @Provides
-    public MongoClientFactory provideMongoConfig(ConfigurationFactory configFactory) {
-        return config(MongoClientFactory.class, configFactory);
-    }
-
-    @Provides
     @Singleton
     public MongoClient provideMongoClient(ConfigurationFactory configFactory) {
         return configFactory.config(MongoClientFactory.class, configPrefix).createClient();
