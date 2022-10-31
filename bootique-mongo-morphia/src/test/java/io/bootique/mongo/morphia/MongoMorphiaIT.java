@@ -34,7 +34,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 @BQTest
-class MongoMorphiaTest {
+class MongoMorphiaIT {
 
     private static final String DB_NAME = "ander-test";
 
