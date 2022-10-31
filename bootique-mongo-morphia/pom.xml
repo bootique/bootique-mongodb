@@ -33,14 +33,10 @@
         <dependency>
             <groupId>io.bootique</groupId>
             <artifactId>bootique</artifactId>
-            <version>${bootique.version}</version>
-            <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>dev.morphia.morphia</groupId>
             <artifactId>morphia-core</artifactId>
-            <version>${morphia.version}</version>
         </dependency>
 
         <!-- Unit test dependencies -->
@@ -49,7 +45,6 @@
             <artifactId>bootique-junit5</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>io.bootique.mongo</groupId>
             <artifactId>bootique-mongo-junit5</artifactId>
