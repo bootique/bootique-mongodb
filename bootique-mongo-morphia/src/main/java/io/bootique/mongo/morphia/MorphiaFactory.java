@@ -18,15 +18,35 @@
  */
 package io.bootique.mongo.morphia;
 
-public class MorphiaConfig {
+import com.mongodb.client.MongoClient;
+import dev.morphia.Datastore;
+import dev.morphia.Morphia;
+import io.bootique.annotation.BQConfig;
+import io.bootique.annotation.BQConfigProperty;
+
+import java.util.Objects;
+import java.util.Set;
+
+@BQConfig
+public class MorphiaFactory {
 
     private String dbname;
 
-    public String getDbname() {
-        return dbname;
+    public Datastore createDatastore(MongoClient client, Set<String> morphiaPackageNames) {
+        Objects.requireNonNull(dbname);
+        Datastore datastore = Morphia.createDatastore(client, dbname);
+
+        if (!morphiaPackageNames.isEmpty()) {
+            var mapper = datastore.getMapper();
+            morphiaPackageNames.forEach(mapper::mapPackage);
+        }
+
+        datastore.ensureIndexes();
+        return datastore;
     }
 
-    public MorphiaConfig dbname(String dbname) {
+    @BQConfigProperty
+    public MorphiaFactory setDbname(String dbname) {
         this.dbname = dbname;
         return this;
     }

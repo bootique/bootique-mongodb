@@ -44,7 +44,7 @@ public class MorphiaModuleExtender extends ModuleExtender<MorphiaModuleExtender>
 
     private SetBuilder<String> contributePackageNames() {
         if (packageNames == null) {
-            packageNames = newSet(String.class, "morphiaPackageNames");
+            packageNames = newSet(String.class, MorphiaModule.MORPHIA_PACKAGE_NAMES_DI_NAME);
         }
         return packageNames;
     }
