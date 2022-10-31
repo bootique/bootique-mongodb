@@ -76,6 +76,12 @@
                 <groupId>dev.morphia.morphia</groupId>
                 <artifactId>morphia-core</artifactId>
                 <version>${morphia.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mongodb</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>io.bootique</groupId>
