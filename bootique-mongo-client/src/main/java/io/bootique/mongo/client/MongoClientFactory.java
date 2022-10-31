@@ -18,16 +18,26 @@
  */
 package io.bootique.mongo.client;
 
-public class MongoConfig {
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import io.bootique.annotation.BQConfig;
+import io.bootique.annotation.BQConfigProperty;
+
+import java.util.Objects;
+
+@BQConfig
+public class MongoClientFactory {
 
     private String connectionString;
 
-    public String getConnectionString() {
-        return connectionString;
-    }
-
-    public MongoConfig connectionString(String connectionString) {
+    @BQConfigProperty
+    public MongoClientFactory setConnectionString(String connectionString) {
         this.connectionString = connectionString;
         return this;
+    }
+
+    public MongoClient createClient() {
+        Objects.requireNonNull(connectionString);
+        return MongoClients.create(connectionString);
     }
 }

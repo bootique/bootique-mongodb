@@ -19,7 +19,6 @@
 package io.bootique.mongo.client;
 
 import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
 import io.bootique.ConfigModule;
 import io.bootique.config.ConfigurationFactory;
 import io.bootique.di.Provides;
@@ -29,14 +28,14 @@ import javax.inject.Singleton;
 public class MongoModule extends ConfigModule {
 
     @Provides
-    public MongoConfig provideMongoConfig(ConfigurationFactory configFactory) {
-        return config(MongoConfig.class, configFactory);
+    public MongoClientFactory provideMongoConfig(ConfigurationFactory configFactory) {
+        return config(MongoClientFactory.class, configFactory);
     }
 
     @Provides
     @Singleton
-    public MongoClient provideMongoClient(MongoConfig config) {
-        return MongoClients.create(config.getConnectionString());
+    public MongoClient provideMongoClient(ConfigurationFactory configFactory) {
+        return configFactory.config(MongoClientFactory.class, configPrefix).createClient();
     }
 }
 

@@ -34,7 +34,7 @@ public class MongoModuleProvider implements BQModuleProvider {
 
     @Override
     public Map<String, Type> configs() {
-        return Collections.singletonMap("mongo", MongoConfig.class);
+        return Collections.singletonMap("mongo", MongoClientFactory.class);
     }
 }
 
