@@ -50,7 +50,7 @@
     </properties>
 
     <scm>
-        <developerConnection>scm:git:ssh://git@github.com:bootique/bootique-mongodb.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com/bootique/bootique-mongodb.git</developerConnection>
         <url>https://github.com/bootique/bootique-mongodb</url>
         <tag>HEAD</tag>
     </scm>
