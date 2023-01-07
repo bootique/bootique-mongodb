@@ -25,7 +25,7 @@
     <parent>
         <groupId>io.bootique.modules.parent</groupId>
         <artifactId>bootique-modules-parent</artifactId>
-        <version>3.0.15</version>
+        <version>3.0.17</version>
     </parent>
 
     <groupId>io.bootique.mongo</groupId>
@@ -79,6 +79,10 @@
                 <exclusions>
                     <exclusion>
                         <groupId>org.mongodb</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
                         <artifactId>*</artifactId>
                     </exclusion>
                 </exclusions>
