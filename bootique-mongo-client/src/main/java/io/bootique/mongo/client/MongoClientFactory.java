@@ -25,6 +25,9 @@ import io.bootique.annotation.BQConfigProperty;
 
 import java.util.Objects;
 
+/**
+ * @since 3.0
+ */
 @BQConfig
 public class MongoClientFactory {
 

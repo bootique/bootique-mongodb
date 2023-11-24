@@ -19,21 +19,19 @@
 package io.bootique.mongo.morphia;
 
 import io.bootique.BQModuleProvider;
-import io.bootique.di.BQModule;
+import io.bootique.bootstrap.BuiltModule;
 
-import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.Map;
-
+/**
+ * @since 3.0
+ */
 public class MorphiaModuleProvider implements BQModuleProvider {
 
     @Override
-    public BQModule module() {
-        return new MorphiaModule();
-    }
-
-    @Override
-    public Map<String, Type> configs() {
-        return Collections.singletonMap("morphia", MorphiaFactory.class);
+    public BuiltModule buildModule() {
+        return BuiltModule.of(new MorphiaModule())
+                .provider(this)
+                .description("Integrates Morphia MongoDB framework.")
+                .config("morphia", MorphiaFactory.class)
+                .build();
     }
 }

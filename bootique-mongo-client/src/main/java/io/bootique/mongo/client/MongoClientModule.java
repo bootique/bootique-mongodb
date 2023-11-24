@@ -25,6 +25,9 @@ import io.bootique.di.Provides;
 
 import javax.inject.Singleton;
 
+/**
+ * @since 3.0
+ */
 public class MongoClientModule extends ConfigModule {
 
     @Provides

@@ -27,6 +27,9 @@ import io.bootique.annotation.BQConfigProperty;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * @since 3.0
+ */
 @BQConfig
 public class MorphiaFactory {
 

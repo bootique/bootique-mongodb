@@ -19,22 +19,20 @@
 package io.bootique.mongo.client;
 
 import io.bootique.BQModuleProvider;
-import io.bootique.di.BQModule;
+import io.bootique.bootstrap.BuiltModule;
 
-import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.Map;
-
+/**
+ * @since 3.0
+ */
 public class MongoClientModuleProvider implements BQModuleProvider {
 
     @Override
-    public BQModule module() {
-        return new MongoClientModule();
-    }
-
-    @Override
-    public Map<String, Type> configs() {
-        return Collections.singletonMap("mongoclient", MongoClientFactory.class);
+    public BuiltModule buildModule() {
+        return BuiltModule.of(new MongoClientModule())
+                .provider(this)
+                .description("Integrates MongoDB client.")
+                .config("mongoclient", MongoClientFactory.class)
+                .build();
     }
 }
 
