@@ -37,8 +37,7 @@ public class MongoClientModule implements BQModule, BQModuleProvider {
 
     @Override
     public BuiltModule buildModule() {
-        return BuiltModule.of(new MongoClientModule())
-                .provider(this)
+        return BuiltModule.of(this)
                 .description("Integrates MongoDB client.")
                 .config(CONFIG_PREFIX, MongoClientFactory.class)
                 .build();
