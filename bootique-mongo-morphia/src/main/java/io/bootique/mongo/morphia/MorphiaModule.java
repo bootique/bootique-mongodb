@@ -20,8 +20,10 @@ package io.bootique.mongo.morphia;
 
 import com.mongodb.client.MongoClient;
 import dev.morphia.Datastore;
-import io.bootique.ConfigModule;
+import io.bootique.BQModuleProvider;
+import io.bootique.bootstrap.BuiltModule;
 import io.bootique.config.ConfigurationFactory;
+import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
 import io.bootique.di.Provides;
 
@@ -29,12 +31,26 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 import java.util.Set;
 
-public class MorphiaModule extends ConfigModule {
+public class MorphiaModule implements BQModule, BQModuleProvider {
+
+    private static final String CONFIG_PREFIX = "morphia";
 
     static final String MORPHIA_PACKAGE_NAMES_DI_NAME = "morphiaPackageNames";
 
     public static MorphiaModuleExtender extend(Binder binder) {
         return new MorphiaModuleExtender(binder);
+    }
+
+    @Override
+    public BuiltModule buildModule() {
+        return BuiltModule.of(this)
+                .description("Integrates Morphia MongoDB framework.")
+                .config(CONFIG_PREFIX, MorphiaFactory.class)
+                .build();
+    }
+
+    @Override
+    public void configure(Binder binder) {
     }
 
     @Provides
@@ -45,7 +61,7 @@ public class MorphiaModule extends ConfigModule {
             @Named(MORPHIA_PACKAGE_NAMES_DI_NAME) Set<String> morphiaPackageNames
     ) {
         return configFactory
-                .config(MorphiaFactory.class, configPrefix)
+                .config(MorphiaFactory.class, CONFIG_PREFIX)
                 .createDatastore(client, morphiaPackageNames);
     }
 }

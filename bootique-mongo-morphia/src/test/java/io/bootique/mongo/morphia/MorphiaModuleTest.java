@@ -21,11 +21,11 @@ package io.bootique.mongo.morphia;
 import io.bootique.junit5.BQModuleProviderChecker;
 import org.junit.jupiter.api.Test;
 
-public class MorphiaModuleProviderTest {
+public class MorphiaModuleTest {
 
     @Test
     public void autoLoadable() {
-        BQModuleProviderChecker.testAutoLoadable(MorphiaModuleProvider.class);
+        BQModuleProviderChecker.testAutoLoadable(MorphiaModule.class);
     }
 }
 
