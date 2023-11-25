@@ -21,11 +21,11 @@ package io.bootique.mongo.client;
 import io.bootique.junit5.BQModuleProviderChecker;
 import org.junit.jupiter.api.Test;
 
-public class MongoClientModuleProviderTest {
+public class MongoClientModuleTest {
 
     @Test
     public void autoLoadable() {
-        BQModuleProviderChecker.testAutoLoadable(MongoClientModuleProvider.class);
+        BQModuleProviderChecker.testAutoLoadable(MongoClientModule.class);
     }
 }
 

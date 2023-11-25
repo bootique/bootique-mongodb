@@ -1,1 +1,1 @@
-io.bootique.mongo.client.MongoClientModuleProvider
+io.bootique.mongo.client.MongoClientModule
