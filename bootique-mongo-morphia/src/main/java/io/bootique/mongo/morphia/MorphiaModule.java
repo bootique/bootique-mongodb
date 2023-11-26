@@ -21,7 +21,7 @@ package io.bootique.mongo.morphia;
 import com.mongodb.client.MongoClient;
 import dev.morphia.Datastore;
 import io.bootique.BQModuleProvider;
-import io.bootique.bootstrap.BuiltModule;
+import io.bootique.ModuleCrate;
 import io.bootique.config.ConfigurationFactory;
 import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
@@ -42,8 +42,8 @@ public class MorphiaModule implements BQModule, BQModuleProvider {
     }
 
     @Override
-    public BuiltModule buildModule() {
-        return BuiltModule.of(this)
+    public ModuleCrate moduleCrate() {
+        return ModuleCrate.of(this)
                 .description("Integrates Morphia MongoDB framework.")
                 .config(CONFIG_PREFIX, MorphiaFactory.class)
                 .build();
