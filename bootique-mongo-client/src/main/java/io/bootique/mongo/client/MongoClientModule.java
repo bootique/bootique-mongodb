@@ -19,10 +19,9 @@
 package io.bootique.mongo.client;
 
 import com.mongodb.client.MongoClient;
-import io.bootique.BQModuleProvider;
+import io.bootique.BQModule;
 import io.bootique.ModuleCrate;
 import io.bootique.config.ConfigurationFactory;
-import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
 import io.bootique.di.Provides;
 
@@ -31,12 +30,12 @@ import javax.inject.Singleton;
 /**
  * @since 3.0
  */
-public class MongoClientModule implements BQModule, BQModuleProvider {
+public class MongoClientModule implements BQModule {
 
     private static final String CONFIG_PREFIX = "mongoclient";
 
     @Override
-    public ModuleCrate moduleCrate() {
+    public ModuleCrate crate() {
         return ModuleCrate.of(this)
                 .description("Integrates MongoDB client.")
                 .config(CONFIG_PREFIX, MongoClientFactory.class)

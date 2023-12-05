@@ -20,10 +20,9 @@ package io.bootique.mongo.morphia;
 
 import com.mongodb.client.MongoClient;
 import dev.morphia.Datastore;
-import io.bootique.BQModuleProvider;
+import io.bootique.BQModule;
 import io.bootique.ModuleCrate;
 import io.bootique.config.ConfigurationFactory;
-import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
 import io.bootique.di.Provides;
 
@@ -31,7 +30,7 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 import java.util.Set;
 
-public class MorphiaModule implements BQModule, BQModuleProvider {
+public class MorphiaModule implements BQModule {
 
     private static final String CONFIG_PREFIX = "morphia";
 
@@ -42,7 +41,7 @@ public class MorphiaModule implements BQModule, BQModuleProvider {
     }
 
     @Override
-    public ModuleCrate moduleCrate() {
+    public ModuleCrate crate() {
         return ModuleCrate.of(this)
                 .description("Integrates Morphia MongoDB framework.")
                 .config(CONFIG_PREFIX, MorphiaFactory.class)

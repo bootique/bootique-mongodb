@@ -18,14 +18,14 @@
  */
 package io.bootique.mongo.morphia;
 
-import io.bootique.junit5.BQModuleProviderChecker;
+import io.bootique.junit5.BQModuleTester;
 import org.junit.jupiter.api.Test;
 
 public class MorphiaModuleTest {
 
     @Test
-    public void autoLoadable() {
-        BQModuleProviderChecker.testAutoLoadable(MorphiaModule.class);
+    public void check() {
+        BQModuleTester.of(MorphiaModule.class).testAutoLoadable().testConfig();
     }
 }
 
