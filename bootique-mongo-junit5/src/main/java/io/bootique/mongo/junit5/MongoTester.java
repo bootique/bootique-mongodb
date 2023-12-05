@@ -19,7 +19,7 @@
 package io.bootique.mongo.junit5;
 
 import io.bootique.BQCoreModule;
-import io.bootique.di.BQModule;
+import io.bootique.BQModule;
 import io.bootique.junit5.BQTestScope;
 import io.bootique.junit5.scope.BQAfterScopeCallback;
 import io.bootique.junit5.scope.BQBeforeScopeCallback;
