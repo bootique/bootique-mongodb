@@ -21,9 +21,11 @@ package io.bootique.mongo.morphia;
 import com.mongodb.client.MongoClient;
 import dev.morphia.Datastore;
 import dev.morphia.Morphia;
+import dev.morphia.mapping.Mapper;
 import io.bootique.annotation.BQConfig;
 import io.bootique.annotation.BQConfigProperty;
 
+import javax.inject.Named;
 import java.util.Objects;
 import java.util.Set;
 
@@ -33,15 +35,25 @@ import java.util.Set;
 @BQConfig
 public class MorphiaFactory {
 
+    private final MongoClient client;
+    private final Set<String> packageNames;
+
     private String dbname;
 
-    public Datastore createDatastore(MongoClient client, Set<String> morphiaPackageNames) {
+    public MorphiaFactory(
+            MongoClient client,
+            @Named(MorphiaModule.MORPHIA_PACKAGE_NAMES_DI_NAME) Set<String> packageNames) {
+        this.client = client;
+        this.packageNames = packageNames;
+    }
+
+    public Datastore create() {
         Objects.requireNonNull(dbname);
         Datastore datastore = Morphia.createDatastore(client, dbname);
 
-        if (!morphiaPackageNames.isEmpty()) {
-            var mapper = datastore.getMapper();
-            morphiaPackageNames.forEach(mapper::mapPackage);
+        if (!packageNames.isEmpty()) {
+            Mapper mapper = datastore.getMapper();
+            packageNames.forEach(mapper::mapPackage);
         }
 
         datastore.ensureIndexes();

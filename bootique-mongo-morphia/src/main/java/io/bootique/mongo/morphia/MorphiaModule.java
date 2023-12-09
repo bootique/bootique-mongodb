@@ -18,7 +18,6 @@
  */
 package io.bootique.mongo.morphia;
 
-import com.mongodb.client.MongoClient;
 import dev.morphia.Datastore;
 import io.bootique.BQModule;
 import io.bootique.ModuleCrate;
@@ -26,9 +25,7 @@ import io.bootique.config.ConfigurationFactory;
 import io.bootique.di.Binder;
 import io.bootique.di.Provides;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
-import java.util.Set;
 
 public class MorphiaModule implements BQModule {
 
@@ -54,13 +51,9 @@ public class MorphiaModule implements BQModule {
 
     @Provides
     @Singleton
-    public Datastore provideMorphiaDatastore(
-            ConfigurationFactory configFactory,
-            MongoClient client,
-            @Named(MORPHIA_PACKAGE_NAMES_DI_NAME) Set<String> morphiaPackageNames
-    ) {
+    public Datastore provideMorphiaDatastore(ConfigurationFactory configFactory) {
         return configFactory
                 .config(MorphiaFactory.class, CONFIG_PREFIX)
-                .createDatastore(client, morphiaPackageNames);
+                .create();
     }
 }
