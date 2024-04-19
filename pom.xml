@@ -47,6 +47,7 @@
         <bootique.version>${project.version}</bootique.version>
         <mongodb.driver.version>4.6.0</mongodb.driver.version>
         <morphia.version>2.2.6</morphia.version>
+        <commons.compress.version>1.26.1</commons.compress.version>
     </properties>
 
     <scm>
@@ -114,6 +115,17 @@
                 <groupId>org.testcontainers</groupId>
                 <artifactId>mongodb</artifactId>
                 <version>${testcontainers.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-compress</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>${commons.compress.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

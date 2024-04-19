@@ -35,12 +35,14 @@
         <dependency>
             <groupId>io.bootique</groupId>
             <artifactId>bootique</artifactId>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>mongodb</artifactId>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
         </dependency>
         <dependency>
             <groupId>io.bootique</groupId>
