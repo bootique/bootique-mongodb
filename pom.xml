@@ -45,8 +45,8 @@
 
     <properties>
         <bootique.version>${project.version}</bootique.version>
-        <mongodb.driver.version>4.6.0</mongodb.driver.version>
-        <morphia.version>2.2.6</morphia.version>
+        <mongodb.driver.version>4.11.2</mongodb.driver.version>
+        <morphia.version>2.4.13</morphia.version>
         <commons.compress.version>1.26.1</commons.compress.version>
     </properties>
 

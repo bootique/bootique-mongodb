@@ -19,7 +19,7 @@
 package io.bootique.mongo.morphia;
 
 import dev.morphia.Datastore;
-import dev.morphia.query.experimental.filters.Filters;
+import dev.morphia.query.filters.Filters;
 
 import java.util.Optional;
 import java.util.stream.Stream;

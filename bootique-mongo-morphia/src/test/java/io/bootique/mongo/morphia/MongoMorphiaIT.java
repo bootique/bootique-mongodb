@@ -21,7 +21,7 @@ package io.bootique.mongo.morphia;
 import com.mongodb.client.MongoClient;
 import dev.morphia.Datastore;
 import dev.morphia.Morphia;
-import dev.morphia.query.experimental.filters.Filters;
+import dev.morphia.query.filters.Filters;
 import io.bootique.BQRuntime;
 import io.bootique.Bootique;
 import io.bootique.junit5.BQApp;
@@ -36,7 +36,7 @@ import java.util.List;
 @BQTest
 class MongoMorphiaIT {
 
-    private static final String DB_NAME = "ander-test";
+    private static final String DB_NAME = "test";
 
     @BQTestTool
     static final MongoTester mongoTester = MongoTester.create();
@@ -106,7 +106,7 @@ class MongoMorphiaIT {
 
     private Datastore getDatastore() {
         MongoClient client = app.getInstance(MongoClient.class);
-        var datastore = Morphia.createDatastore(client, DB_NAME);
+        Datastore datastore = Morphia.createDatastore(client, DB_NAME);
         datastore.getMapper().mapPackage(this.getClass().getPackageName());
         datastore.ensureIndexes();
         return datastore;
