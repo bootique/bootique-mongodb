@@ -44,7 +44,6 @@
     </modules>
 
     <properties>
-        <bootique.version>${project.version}</bootique.version>
         <mongodb.driver.version>4.11.2</mongodb.driver.version>
         <morphia.version>2.4.13</morphia.version>
         <commons.compress.version>1.26.1</commons.compress.version>
@@ -91,12 +90,12 @@
             <dependency>
                 <groupId>io.bootique</groupId>
                 <artifactId>bootique</artifactId>
-                <version>${bootique.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.bootique</groupId>
                 <artifactId>bootique-junit5</artifactId>
-                <version>${bootique.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <!-- Importing testcontainers modules individually instead of using a BOM
             to have more control over the transitive dependencies -->
