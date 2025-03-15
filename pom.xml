@@ -47,6 +47,7 @@
         <mongodb.driver.version>4.11.2</mongodb.driver.version>
         <morphia.version>2.4.13</morphia.version>
         <commons.compress.version>1.26.1</commons.compress.version>
+        <commons.lang.version>3.17.0</commons.lang.version>
     </properties>
 
     <scm>
@@ -125,6 +126,11 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-compress</artifactId>
                 <version>${commons.compress.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
