@@ -25,7 +25,7 @@ import dev.morphia.mapping.Mapper;
 import io.bootique.annotation.BQConfig;
 import io.bootique.annotation.BQConfigProperty;
 
-import javax.inject.Named;
+import jakarta.inject.Named;
 import java.util.Objects;
 import java.util.Set;
 
