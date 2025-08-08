@@ -26,6 +26,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>bootique-mongo-junit5</artifactId>
+    <name>bootique-mongo-junit5: unit/integration test helper for MongoDB</name>
+    <description>
+        Unit/integration test helper for MongoDB
+    </description>
 
     <dependencies>
         <dependency>
