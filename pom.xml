@@ -30,7 +30,7 @@
 
     <groupId>io.bootique.mongo</groupId>
     <artifactId>bootique-mongo-parent</artifactId>
-    <version>4.0-SNAPSHOT</version>
+    <version>4.0-M2</version>
 
     <name>bootique-mongo-parent</name>
     <description>
@@ -54,7 +54,7 @@
     <scm>
         <developerConnection>scm:git:ssh://git@github.com/bootique/bootique-mongodb.git</developerConnection>
         <url>https://github.com/bootique/bootique-mongodb</url>
-        <tag>HEAD</tag>
+        <tag>4.0-M2</tag>
     </scm>
 
     <dependencyManagement>
