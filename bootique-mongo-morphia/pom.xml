@@ -25,6 +25,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <name>bootique-mongo-morphia: Morphia object-document mapper integration</name>
     <artifactId>bootique-mongo-morphia</artifactId>
 
     <dependencies>

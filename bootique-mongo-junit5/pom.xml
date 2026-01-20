@@ -25,6 +25,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <name>bootique-mongo-junit5: unit/integration test helper for MongoDB</name>
     <artifactId>bootique-mongo-junit5</artifactId>
 
     <dependencies>
