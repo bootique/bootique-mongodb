@@ -1,3 +1,7 @@
+## 4.0-M3
+
+* #4 Upgrade Testcontainers to 2.0.3
+
 ## 3.0-RC2
 
 * #3 Bump org.apache.commons:commons-lang3 from 3.17.0 to 3.18.0
