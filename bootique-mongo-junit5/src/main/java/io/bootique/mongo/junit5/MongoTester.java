@@ -20,9 +20,9 @@ package io.bootique.mongo.junit5;
 
 import io.bootique.BQCoreModule;
 import io.bootique.BQModule;
-import io.bootique.junit5.BQTestScope;
-import io.bootique.junit5.scope.BQAfterScopeCallback;
-import io.bootique.junit5.scope.BQBeforeScopeCallback;
+import io.bootique.junit.BQTestScope;
+import io.bootique.junit.scope.BQAfterScopeCallback;
+import io.bootique.junit.scope.BQBeforeScopeCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.utility.DockerImageName;
