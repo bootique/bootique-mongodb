@@ -39,7 +39,7 @@
 
     <modules>
         <module>bootique-mongo-client</module>
-        <module>bootique-mongo-junit5</module>
+        <module>bootique-mongo-junit</module>
         <module>bootique-mongo-morphia</module>
     </modules>
 

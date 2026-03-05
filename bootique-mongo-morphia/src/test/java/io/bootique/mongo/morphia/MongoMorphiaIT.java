@@ -27,7 +27,7 @@ import io.bootique.Bootique;
 import io.bootique.junit.BQApp;
 import io.bootique.junit.BQTest;
 import io.bootique.junit.BQTestTool;
-import io.bootique.mongo.junit5.MongoTester;
+import io.bootique.mongo.junit.MongoTester;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
