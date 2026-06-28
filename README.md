@@ -18,7 +18,7 @@
   -->
 
 [![build test deploy](https://github.com/bootique/bootique-mongodb/actions/workflows/maven.yml/badge.svg)](https://github.com/bootique/bootique-mongodb/actions/workflows/maven.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/io.bootique.mongodb/bootique-mongodb-client.svg?colorB=brightgreen)](https://search.maven.org/artifact/io.bootique.mongodb/bootique-mongodb-client)
+[![Maven Central](https://img.shields.io/maven-central/v/io.bootique.mongo/bootique-mongo-parent.svg?colorB=brightgreen)](https://search.maven.org/artifact/io.bootique.mongo/bootique-mongo-parent)
 
 
 # Bootique Mongo
