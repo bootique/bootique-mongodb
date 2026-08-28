@@ -46,6 +46,7 @@
     <properties>
         <mongodb.driver.version>4.11.2</mongodb.driver.version>
         <morphia.version>2.4.13</morphia.version>
+        <asm.version>9.10.1</asm.version>
     </properties>
 
     <scm>
@@ -84,7 +85,16 @@
                         <groupId>org.slf4j</groupId>
                         <artifactId>*</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm</artifactId>
+                <version>${asm.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.bootique</groupId>

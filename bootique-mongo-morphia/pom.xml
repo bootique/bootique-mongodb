@@ -41,6 +41,10 @@
             <artifactId>morphia-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.bootique.mongo</groupId>
             <artifactId>bootique-mongo-client</artifactId>
             <version>${project.version}</version>
