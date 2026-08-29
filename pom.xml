@@ -47,6 +47,7 @@
         <mongodb.driver.version>4.11.2</mongodb.driver.version>
         <morphia.version>2.4.13</morphia.version>
         <asm.version>9.10.1</asm.version>
+        <jboss.logging.version>3.6.1.Final</jboss.logging.version>
     </properties>
 
     <scm>
@@ -89,12 +90,22 @@
                         <groupId>org.ow2.asm</groupId>
                         <artifactId>*</artifactId>
                     </exclusion>
+                    <!-- Comes via smallrye-config. Re-declared in bootique-mongo-morphia -->
+                    <exclusion>
+                        <groupId>org.jboss.logging</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm</artifactId>
                 <version>${asm.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging</artifactId>
+                <version>${jboss.logging.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.bootique</groupId>
